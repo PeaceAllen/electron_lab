@@ -16,6 +16,37 @@
     <p id="el-ping">
         test in elPing
     </p>
+
+
+    <button id="btn-get-msg">get msg from ipc main.</button>
+    <p id="p-msg">
+
+    </p>
+
+    <hr>
+    <h2>进程间通信</h2>
+    
+    <ul>
+      <li>
+        模式 1:渲染器进程到主进程(单向):
+        要将单向 IPC 消息从渲染器进程发送到主进程，您可以使用 ipcRenderer.send API 发送消息，然后使用 ipcMain.on API 接收
+        <button id="btn-set-title">设置Title</button>
+      </li>
+      <li>
+        模式 2:渲染器向主进程(双向)
+        双向 IPC 的一个常见应用是从渲染器进程代码调用主进程模块并等待结果。 这可以通过将 ipcRenderer.invoke 与 ipcMain.handle 搭配使用来完成。
+
+        <button id="btn-sel-file">选择一个文件</button>
+        <strong id="file-path"></strong>
+      </li>
+
+      <li>
+        模式 2:主进程向渲染进程
+        counter计数器: 
+        <div id="counter-value">0</div>
+      </li>
+    </ul>
+
     <script src="./render.js"></script>
   </body>
 </html>
